@@ -46,9 +46,9 @@ document.getElementById('btnStartId').addEventListener('click', () => {
     if (minutes == undefined) {
         alert('Error')
     } else {
+        funStartPomodoro(between)
         document.getElementById('btnStartId').style.display = 'none'
         document.getElementById('btnPauseId').style.display = 'block'
-        funStartPomodoro()
     }
 })
 
@@ -69,50 +69,52 @@ document.getElementById('btnContinueId').addEventListener('click', () => {
 
 let i = 0
 let stopTimer
-function funStartPomodoro() {
-    timeTotel = minutes * 4
-    document.body.style.background = "black"
-    stopTimer = setInterval(() => {
-        --seconds
-        timeId.innerHTML = minutes + ':' + seconds
-        if (seconds == 0) {
-            timeId.innerHTML = minutes + ':' + nullNum + seconds
-            seconds = 60
-            --minutes
-        }
 
-        if (seconds < 10) {
-            timeId.innerHTML = minutes + ':' + nullNum + seconds
-        }
-
-        if (minutes <= 9 && seconds == 00) {
-            timeId.prepend(nullNum)
-        }
-
-        if (minutes <= 9) {
-            timeId.prepend(nullNum)
-        }
-
-        if (minutes < 1 && seconds === 1) {
-            ++i
-            clearInterval(stopTimer)
-            minutes = pomodoroBlock.value - 1
-            timeId.innerHTML = '- -' + ' ' + ':' + ' ' + '- -'
-            if (i < 4) {
-                setTimeout(funStartBreak1, 1000)
-            } else {
-                setTimeout(funStartBreakBig, 1000)
+function funStartPomodoro(between) {
+        timeTotel = minutes * 4
+        document.body.style.background = "black"
+        stopTimer = setInterval(() => {
+            --seconds
+            timeId.innerHTML = minutes + ':' + seconds
+            if (seconds == 0) {
+                timeId.innerHTML = minutes + ':' + nullNum + seconds
+                seconds = 60
+                --minutes
             }
-            console.log(i)
-        }
-        setProgress(minutes)
-    }, 1)
-}
 
-function funStartBreak1() {
-    timeTotel = shork * 4
+            if (seconds < 10) {
+                timeId.innerHTML = minutes + ':' + nullNum + seconds
+            }
+
+            if (minutes <= 9 && seconds == 00) {
+                timeId.prepend(nullNum)
+            }
+
+            if (minutes <= 9) {
+                timeId.prepend(nullNum)
+            }
+
+            if (minutes < 1 && seconds === 1) {
+                ++i
+                clearInterval(stopTimer)
+                minutes = pomodoroBlock.value - 1
+                timeId.innerHTML = '- -' + ' ' + ':' + ' ' + '- -'
+                if (i < 4) {
+                    setTimeout(funStartSmaillBreak, 1000)
+                } else {
+                    setTimeout(funStartBreakBig, 1000)
+                }
+                console.log(i)
+            }
+            setProgress(minutes)
+        }, 1)
+    }
+
+function funStartSmaillBreak() {
     document.body.style.background = "blue"
     stopTimer2 = setInterval(() => {
+        timeTotel = shork * 4
+        console.log(timeTotel)
         --seconds
         timeId.innerHTML = shork + ':' + seconds
         if (seconds == 0) {
@@ -140,17 +142,15 @@ function funStartBreak1() {
             setTimeout(funStartPomodoro, 1000)
         }
     }, 1)
-
 }
 
 function funStartBreakBig() {
     timeTotel = long * 4
-    i = 0
     document.body.style.background = "green"
     stopTimer3 = setInterval(() => {
         --seconds
         timeId.innerHTML = long + ':' + seconds
-        
+
         if (seconds == 0) {
             timeId.innerHTML = long + ':' + nullNum + seconds
             seconds = 60
@@ -183,5 +183,6 @@ function setProgress(percent) {
     const offset = circumference - percent / timeTotel * circumference
     circle.style.strokeDashoffset = offset
 }
+
 circle.style.strokeDasharray = `${circumference} ${circumference}`
 circle.style.strokeDasharray = circumference
