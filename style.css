@@ -1,0 +1,187 @@
+body {
+    background: linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%), #FFFFFF;
+    box-sizing: border-box;
+}
+.wrapper {
+}
+.container {
+    max-width: 1100px;
+    min-width: 500px;
+    margin: 0 auto;
+}
+.settings {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.settingsBtn {
+    transform: rotate(0deg);
+    transition: all 1s;
+}
+.settingsBtn:hover {
+    transform: rotate(-200deg);
+    cursor: pointer;
+}
+.menuSettings {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    position: absolute;
+    left: 31%;
+    width: 485px;
+    height: 560px;
+    background: linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%), #FEAFAF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    top: -1000px;
+    transition: all .7s;
+}
+.menuSettings p{
+    margin: 0;
+    color: white;
+    margin-bottom: 5px;
+}
+.menuSettings input{
+    width: 400px;
+    height: 53px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 0px;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px 0px 0px 20px;
+    color: white;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: bold;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.pomodoroBlock {
+    margin: 20px 35px;
+}
+.shorkBreak {
+    margin: 20px 35px;
+}
+.longBreak {
+    margin: 20px 35px;
+}
+.numberPomodoro {
+    margin: 20px 35px;
+}
+.group {
+width: 100%;
+height: 100%;
+}
+.group:hover {
+
+}
+.vector {
+    right: 10px;
+    position: absolute;
+    top: 12px;
+}
+
+.timerBlock{
+    display: flex;
+    justify-content: center;
+}
+.progress_ring_circle {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: stroke-dashoffset 0.3s;
+}
+.timer {
+position: relative;
+}
+.time {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    position: absolute;
+    font-size: 80px;
+    height: 100px;
+    color: white;
+    margin-top: 90px;
+}
+.btn {
+    display: flex;
+    justify-content: center; 
+    margin-top: 100px;
+}
+.btnStart {
+    width: 143px;
+    height: 74px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 300px;
+}
+.btnPause {
+    width: 143px;
+    height: 74px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 300px;
+}
+.btnStop {
+    width: 143px;
+    height: 74px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 300px;
+}
+.btnContinue {
+    width: 143px;
+    height: 74px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 300px;
+}
+.btnStart:hover {
+
+}
+.btnMenuBlock {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.btnClose {
+    width: 130px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 300px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+.btnSave {
+    width: 130px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 300px;
+    font-size: 20px;
+    margin-right: 40px;
+}
