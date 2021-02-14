@@ -38,7 +38,7 @@ body {
     font-size: 15px;
     position: absolute;
     left: 31%;
-    width: 485px;
+    width: 33em;
     height: 560px;
     background: linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%), #FEAFAF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
@@ -198,6 +198,60 @@ position: relative;
     font-size: 20px;
     margin-right: 40px;
 }
+@media (max-width: 2160px) {
+.menuSettings {
+    left: 39%;
+}
+}
+@media (max-width: 1600px) {
+.menuSettings {
+    left: 35%;
+}
+}
+@media (max-width: 1600px) {
+.menuSettings {
+    left: 35%;
+}
+}
+@media (max-width: 1100px) {
+.menuSettings {
+    left: 30%;
+}
+}
+@media (max-width: 860px) {
+.menuSettings {
+    left: 22%;
+}
+}
+@media (max-width: 780px) {
+.menuSettings {
+    left: 19%;
+}
+}
+@media (max-width: 720px) {
+.menuSettings {
+    left: 15%;
+}
+}
+@media (max-width: 632px) {
+.menuSettings {
+    left: 10%;
+    width: 400px;
+}
+.menuSettings input {
+        width: 310px;
+}
+}
+@media (max-width: 514px) {
+.menuSettings {
+    left: 10%;
+    width: 400px;
+}
+.menuSettings input {
+    width: 310px;
+}
+}
+
 @media (max-width: 360px) {
     .time {
     font-family: 'Source Sans Pro', sans-serif;
@@ -220,6 +274,7 @@ position: relative;
     margin-top: 120px;
 }
 }
+
 
 .errorValue {
     opacity: 0;
