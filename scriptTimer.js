@@ -24,7 +24,6 @@ let between
 if (minutes == undefined) {
     timeId.innerHTML = '- -' + ' ' + ':' + ' ' + '- -'
 }
-
 document.getElementById('btnContinueId').style.display = 'none'
 document.getElementById('btnStopId').style.display = 'none'
 document.getElementById('btnPauseId').style.display = 'none'
@@ -81,9 +80,11 @@ document.getElementById('btnStopId').addEventListener('click', () => {
 })
 
 document.getElementById('btnContinueId').addEventListener('click', () => {
-    clearInterval(stopPomodoroTimer)
-    clearInterval(stopSmaillBreakTimer)
-    clearInterval(stopBigTimer)
+    funStartPomodoro()
+    document.getElementById('btnPauseId').style.display = 'block'
+    document.getElementById('btnStopId').style.display = 'none'
+    document.getElementById('btnContinueId').style.display = 'none'
+    document.getElementById('btnStartId').style.display = 'none'
 })
 
 
@@ -94,7 +95,6 @@ let numCycles = 0;
 
 function funStartPomodoro() {
     timeTotel = minutes * 4 
-    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)' });
     stopPomodoroTimer = setInterval(() => {
             --seconds
             timeId.innerHTML = minutes + ':' + seconds
@@ -139,7 +139,7 @@ function funStartPomodoro() {
             console.log(numCycles)
         }
         setProgress(minutes)
-    }, 1000)
+    }, 10)
     }
 
 function funStartSmaillBreak() {
