@@ -250,6 +250,9 @@ position: relative;
 .menuSettings input {
     width: 310px;
 }
+.container {
+    min-width: 470px;
+}
 }
 
 @media (max-width: 360px) {
