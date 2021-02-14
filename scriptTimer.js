@@ -30,16 +30,16 @@ document.getElementById('btnStopId').style.display = 'none'
 document.getElementById('btnPauseId').style.display = 'none'
 
 document.getElementById('btnSaveId').addEventListener('click', () => {
-    // if (pomodoroBlock.value < 5 || shorkBreak.value < 5 || longBreak.value < 5 || betweenBreak.value < 4 && pomodoroBlock.value > 25 || shorkBreak.value > 25 || longBreak.value > 25 || betweenBreak.value > 15) {
-    //     errorValue.style.opacity = '1'
-    // } else {
+    if (pomodoroBlock.value < 5 || shorkBreak.value < 5 || longBreak.value < 5 || betweenBreak.value < 4 && pomodoroBlock.value > 25 || shorkBreak.value > 25 || longBreak.value > 25 || betweenBreak.value > 15) {
+        errorValue.style.opacity = '1'
+    } else {
         minutes = pomodoroBlock.value - 1
         timeId.innerHTML = minutes + ':' + seconds
         shork = shorkBreak.value
         long = longBreak.value - 1
         between = +betweenBreak.value
         menuSettingsId.style.top = '-1000px'
-    // }
+    }
 })
 
 document.getElementById("settingsBtnId").addEventListener('click', () => {
@@ -139,7 +139,7 @@ function funStartPomodoro() {
             console.log(numCycles)
         }
         setProgress(minutes)
-    }, 1)
+    }, 1000)
     }
 
 function funStartSmaillBreak() {
@@ -175,7 +175,7 @@ function funStartSmaillBreak() {
             setTimeout(funStartPomodoro, 1000)
         }
         setProgress(shork)
-    }, 1)
+    }, 1000)
 
 }
 
@@ -211,7 +211,7 @@ function funStartBreakBig() {
             funStartPomodoro()
         }
         setProgress(long)
-    }, 1)
+    }, 1000)
 }
 
 function setProgress(percent) {
