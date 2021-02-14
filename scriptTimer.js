@@ -30,17 +30,16 @@ document.getElementById('btnStopId').style.display = 'none'
 document.getElementById('btnPauseId').style.display = 'none'
 
 document.getElementById('btnSaveId').addEventListener('click', () => {
-    if (pomodoroBlock.value < 5 || shorkBreak.value < 5 || longBreak.value < 5 || betweenBreak.value < 4 && pomodoroBlock.value > 25 || shorkBreak.value > 25 || longBreak.value > 25 || betweenBreak.value > 15) {
-        errorValue.style.opacity = '1'
-    } else {
+    // if (pomodoroBlock.value < 5 || shorkBreak.value < 5 || longBreak.value < 5 || betweenBreak.value < 4 && pomodoroBlock.value > 25 || shorkBreak.value > 25 || longBreak.value > 25 || betweenBreak.value > 15) {
+    //     errorValue.style.opacity = '1'
+    // } else {
         minutes = pomodoroBlock.value - 1
         timeId.innerHTML = minutes + ':' + seconds
-        shork = shorkBreak.value - 1
+        shork = shorkBreak.value
         long = longBreak.value - 1
-        between = betweenBreak.value
+        between = +betweenBreak.value
         menuSettingsId.style.top = '-1000px'
-    }
-
+    // }
 })
 
 document.getElementById("settingsBtnId").addEventListener('click', () => {
@@ -87,24 +86,16 @@ document.getElementById('btnContinueId').addEventListener('click', () => {
     clearInterval(stopBigTimer)
 })
 
-function setProgress(percent) {
-    const offset = circumference - percent / timeTotel * circumference
-    circle.style.strokeDashoffset = offset
-}
-
-circle.style.strokeDasharray = `${circumference} ${circumference}`
-circle.style.strokeDasharray = circumference
 
 
 let i = 0
 let stopTimer
+let numCycles = 0;
 
 function funStartPomodoro() {
-    $('body').css({ 'background-image': 'linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%)' });
     timeTotel = minutes * 4 
-    console.log(timeTotel)
+    $('body').css({ 'background-image': 'linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%)' });
     stopPomodoroTimer = setInterval(() => {
-
             --seconds
             timeId.innerHTML = minutes + ':' + seconds
             if (seconds == 0) {
@@ -124,29 +115,37 @@ function funStartPomodoro() {
             if (minutes <= 9) {
                 timeId.prepend(nullNum)
             }
-
+        
             if (minutes < 1 && seconds === 1) {
                 ++i
-                clearInterval(stopPomodoroTimer)
-                minutes = pomodoroBlock.value - 1
+                ++numCycles
                 timeId.innerHTML = '- -' + ' ' + ':' + ' ' + '- -'
-                if (i < 4) {
-
-                    setTimeout(funStartSmaillBreak, 1000)
+                clearInterval(stopPomodoroTimer)
+                if (numCycles === between) {
+                    shork = 0
+                    long = 0
+                    between = 0
+                    document.getElementById('btnStartId').style.display = 'block'
+                    document.getElementById('btnPauseId').style.display = 'none'
+                    minutes = undefined
+                    clearInterval(stopPomodoroTimer)
                 } else {
-                    setTimeout(funStartBigBreak, 1000)
+                    if (i === 4) {
+                        setTimeout(funStartBreakBig, 1000)
+                    } else {
+                        setTimeout(funStartSmaillBreak, 1000)
+                    }
                 }
-                console.log(i)
-            }
-            setProgress(minutes)
-        }, 1)
+            console.log(numCycles)
+        }
+        setProgress(minutes)
+    }, 1)
     }
 
 function funStartSmaillBreak() {
-    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)', 'linear - gradient(90deg, #F78CA0 0 %, #F9748F 20.31 %, #FD868C 66.67 %, #FE9A8B 100 %)': 'linear- gradient(0deg, #FFFFFF, #FFFFFF);' });
     timeTotel = shork * 4
+    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)', 'linear - gradient(90deg, #F78CA0 0 %, #F9748F 20.31 %, #FD868C 66.67 %, #FE9A8B 100 %)': 'linear- gradient(0deg, #FFFFFF, #FFFFFF);' });
     stopSmaillBreakTimer = setInterval(() => {
-        console.log(timeTotel)
         --seconds
         timeId.innerHTML = shork + ':' + seconds
         if (seconds == 0) {
@@ -168,9 +167,11 @@ function funStartSmaillBreak() {
         }
 
         if (shork < 1 && seconds === 1) {
+            clearInterval(stopPomodoroTimer)
             clearInterval(stopSmaillBreakTimer)
-            shork = shorkBreak.value - 1
             timeId.innerHTML = '- -' + ' ' + ':' + ' ' + '- -'
+            minutes = pomodoroBlock.value
+            shork = shorkBreak.value
             setTimeout(funStartPomodoro, 1000)
         }
         setProgress(shork)
@@ -181,11 +182,9 @@ function funStartSmaillBreak() {
 function funStartBreakBig() {
     timeTotel = long * 4
     $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)', 'linear - gradient(90deg, #F78CA0 0 %, #F9748F 20.31 %, #FD868C 66.67 %, #FE9A8B 100 %)': 'linear- gradient(0deg, #FFFFFF, #FFFFFF);' });
-    console.log(timeTotel)
     stopBigTimer = setInterval(() => {
         --seconds
         timeId.innerHTML = long + ':' + seconds
-
         if (seconds == 0) {
             timeId.innerHTML = long + ':' + nullNum + seconds
             seconds = 60
@@ -205,12 +204,20 @@ function funStartBreakBig() {
         }
 
         if (long < 1 && seconds === 1) {
-            clearInterval(stopBigTimer)
-            long = longBreak.value - 1
             timeId.innerHTML = '- -' + ' ' + ':' + ' ' + '- -'
-            console.log(i)
+            clearInterval(stopPomodoroTimer)
+            clearInterval(stopSmaillBreakTimer)
+            clearInterval(stopBigTimer)
+            funStartPomodoro()
         }
         setProgress(long)
     }, 1)
 }
 
+function setProgress(percent) {
+    const offset = circumference - percent / timeTotel * circumference
+    circle.style.strokeDashoffset = offset
+}
+
+circle.style.strokeDasharray = `${circumference} ${circumference}`
+circle.style.strokeDasharray = circumference
