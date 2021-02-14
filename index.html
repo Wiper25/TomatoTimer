@@ -26,20 +26,22 @@
             <div id="menuSettingsId" class="menuSettings">
                 <div class="pomodoroBlock">
                     <p>Pomodoro Block</p>
-                    <input id="pomodoroblockId" value="25" type="number" step="0.01">
+                    <input id="pomodoroblockId" placeholder="min 5 - max 25" type="number" step="0.01">
+                    
                 </div>
                 <div class="shorkBreak">
                     <p>Short Break</p>
-                    <input id="shorkBreakId" value="5" type="number">
+                    <input id="shorkBreakId" placeholder="min 5 - max 25" type="number">
                 </div>
                 <div class="longBreak">
                     <p>Long Break</p>
-                    <input id="longBreakId" value="15" type="number">
+                    <input id="longBreakId" placeholder="min 5 - max 25" type="number">
                 </div>
                 <div class="numberPomodoro">
                     <p>Number of pomodoro</p>
-                    <input id="numberPomodoroId" value="4" type="number">
+                    <input id="numberPomodoroId" placeholder="min 5 - max 15" type="number">
                 </div>
+                <div id="errorValue" class="errorValue">Entered the wrong value</div>
                 <div class="btnMenuBlock">
                     <button id="btnCloseId" class="btnClose">Close</button>
                     <button id="btnSaveId" class="btnSave">Save</button>
@@ -65,6 +67,7 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="scriptTimer.js"></script>
 </body>
 
