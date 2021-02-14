@@ -6,7 +6,6 @@ html,body {
 }
 body {
     background: linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%), #FFFFFF;
-    background-repeat: no-repeat;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
