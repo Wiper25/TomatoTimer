@@ -94,7 +94,7 @@ let numCycles = 0;
 
 function funStartPomodoro() {
     timeTotel = minutes * 4 
-    $('body').css({ 'background-image': 'linear-gradient(90deg, #F78CA0 0%, #F9748F 20.31%, #FD868C 66.67%, #FE9A8B 100%)' });
+    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)' });
     stopPomodoroTimer = setInterval(() => {
             --seconds
             timeId.innerHTML = minutes + ':' + seconds
@@ -144,7 +144,7 @@ function funStartPomodoro() {
 
 function funStartSmaillBreak() {
     timeTotel = shork * 4
-    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)', 'linear - gradient(90deg, #F78CA0 0 %, #F9748F 20.31 %, #FD868C 66.67 %, #FE9A8B 100 %)': 'linear- gradient(0deg, #FFFFFF, #FFFFFF);' });
+    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)' });
     stopSmaillBreakTimer = setInterval(() => {
         --seconds
         timeId.innerHTML = shork + ':' + seconds
@@ -181,7 +181,7 @@ function funStartSmaillBreak() {
 
 function funStartBreakBig() {
     timeTotel = long * 4
-    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)', 'linear - gradient(90deg, #F78CA0 0 %, #F9748F 20.31 %, #FD868C 66.67 %, #FE9A8B 100 %)': 'linear- gradient(0deg, #FFFFFF, #FFFFFF);' });
+    $('body').css({ 'background-image': 'linear-gradient(180deg, #48C6EF 0%, #6F86D6 100%)' });
     stopBigTimer = setInterval(() => {
         --seconds
         timeId.innerHTML = long + ':' + seconds
