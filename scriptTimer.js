@@ -139,7 +139,7 @@ function funStartPomodoro() {
             console.log(numCycles)
         }
         setProgress(minutes)
-    }, 10)
+    }, 1000)
     }
 
 function funStartSmaillBreak() {
