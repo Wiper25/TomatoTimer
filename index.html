@@ -18,6 +18,8 @@
     <div class="wrapper">
         <div class="container">
             <div class="settings">
+            <div style="margin-right: 20px;align-items: center;display: flex;justify-content: center;color: rgb(255, 255, 255);text-shadow: rgb(255, 0, 0) 0 0 2px; transition: all 2s;"
+                id="Error" class="Error"></div>
                 <div id="settingsBtnId" class="settingsBtn">
                     <img class="group" src="img/Group.svg" alt="">
                     <img class="vector" src="img/Vector.svg" alt="">
@@ -26,8 +28,7 @@
             <div id="menuSettingsId" class="menuSettings">
                 <div class="pomodoroBlock">
                     <p>Pomodoro Block</p>
-                    <input id="pomodoroblockId" placeholder="min 5 - max 25"  type="number" step="0.01">
-                    
+                    <input id="pomodoroblockId" placeholder="min 5 - max 25" type="number" step="0.01">
                 </div>
                 <div class="shorkBreak">
                     <p>Short Break</p>
@@ -39,7 +40,7 @@
                 </div>
                 <div class="numberPomodoro">
                     <p>Number of pomodoro</p>
-                    <input id="numberPomodoroId" placeholder="min 5 - max 15"   type="number">
+                    <input id="numberPomodoroId" placeholder="min 4 - max 15" type="number">
                 </div>
                 <div id="errorValue" class="errorValue">Entered the wrong value</div>
                 <div class="btnMenuBlock">
@@ -57,7 +58,6 @@
                             style="opacity: 1;" stroke-width="5" fill="transparent" />
                     </svg>
                 </div>
-
             </div>
             <div id="btnId" class="btn">
                 <button id="btnStartId" class="btnStart">Start</button>

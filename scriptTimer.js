@@ -51,7 +51,10 @@ document.getElementById("btnCloseId").addEventListener('click', () => {
 
 document.getElementById('btnStartId').addEventListener('click', () => {
     if (minutes == undefined) {
-        alert('Error')
+        document.getElementById("Error").textContent = "Please set the tomato timer! >>>"
+        setTimeout(() => {
+            document.getElementById("Error").textContent = " "
+        },2000)
     } else {
         funStartPomodoro()
         document.getElementById('btnStartId').style.display = 'none'
